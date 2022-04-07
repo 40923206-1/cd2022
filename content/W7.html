@@ -2,7 +2,7 @@
         <head>
         <title>cmsimde_site</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -139,10 +139,28 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content"> <a href='Weekly tasks.html'>Next</a> >> Weekly tasks<br /><h1>About</h1>
-<p>cmsimde_site</p>
-<pre class="tw-data-text tw-text-large tw-ta" data-placeholder="翻譯" dir="ltr" id="tw-target-text"><span class="Y2IQFc" lang="en">Warehousing：<a href="https://github.com/40923206-1/cd2022">40923206</a><a href="https://40923206-1.github.io/cd2022/content/index.html"><br/></a>Website：<a href="https://40923206-1.github.io/cd2022/content/index.html">40923206</a><a href="https://40923206-1.github.io/cd2022/content/index.html"><br/></a></span></pre>
-<br /> <a href='Weekly tasks.html'>Next</a> >> Weekly tasks</div>
+    <div id="tipue_search_content">W6 << <a href='W6.html'>Previous</a> <br /><h1>W7</h1>
+<p><span>在系上網段, 可直接從 </span><a href="http://wcm.cycu.org:88/">http://wcm.cycu.org:88</a><span><span> </span>下載.</span><a href="http://wcm.cycu.org:88/compile_copsim_cd2022.7z">compile_copsim_cd2022.7z</a></p>
+<p>將自己的倉儲<span> <span style="background-color: #ff9900;">git clone --recurse-submodules 倉儲網址</span> 到compile_copsim_cd2022\data\tmp中，</span></p>
+<p><img alt="" height="567" src="./../images/圖片1.png" width="1008"/></p>
+<p>接著跟著<span style="background-color: #ffff99;"><a href="https://mde.tw/cd2022_guide/content/w7%20%E4%BB%BB%E5%8B%99.html" style="background-color: #ffff99;">W7任務</a></span>的步驟開始執行。</p>
+<p>1.<span style="background-color: #ffff99;">git clone <a href="https://github.com/mdecourse/scarysim.git" style="background-color: #ffff99;">https://github.com/mdecourse/scarysim.git</a></span></p>
+<p><img alt="" height="567" src="./../images/圖片2.png" width="1008"/></p>
+<p>2.修改 <span style="background-color: #ffff99;">scarysim.pro</span>, 蓋掉第 11 行, 成為 <span style="background-color: #ffff99;">#</span> LIBS     += -lglut -lGLU</p>
+<p><img alt="" height="567" src="./../images/圖片8.png" width="1008"/></p>
+<p>3.<span style="background-color: #ffff99;">cd scarysim</span></p>
+<p><img alt="" height="567" src="./../images/圖片3.png" width="1008"/></p>
+<p>4.<span style="background-color: #ffff99;">qmake -o Makefile scarysim.pro</span></p>
+<p><img alt="" height="567" src="./../images/圖片4.png" width="1008"/></p>
+<p>5.<span style="background-color: #ffff99;">mingw32-make -f Makefile.Release</span> 可以在 release 目錄取得 scarysim.exe</p>
+<p><img alt="" height="567" src="./../images/圖片5.png" width="1008"/></p>
+<p>6.<span>將 <span style="background-color: #ffff99;">scarysim.exe</span> 移至<span style="background-color: #ffff99;">倉儲根目錄</span>, 並且需要 msys64_20210419\mingw64\bin 路徑中的 dll 動態連結程式庫配合執行.新創一個 <span style="background-color: #ffff99;">scarysim.bat</span>。</span></p>
+<p><img alt="" height="567" src="./../images/圖片6.png" width="1008"/></p>
+<p><span style="background-color: #ffff99;">scarysim.bat</span><span>內容為下圖所示(找到自己檔案所在位置並複製檔案路徑)</span></p>
+<p><span><img alt="" height="567" src="./../images/圖片7.png" width="1008"/></span></p>
+<p><span>更改後開啟 <span style="color: #000000; background-color: #ffff99;">scarysim.bat</span> 可顯示下圖紅框所示</span></p>
+<p><span><img alt="" height="567" src="./../images/圖片9.png" width="1008"/></span></p>
+<p><span></span></p><br />W6 << <a href='W6.html'>Previous</a> </div>
         
     <!-- footer -->
       <div class="container">
