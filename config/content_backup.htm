@@ -517,16 +517,16 @@ frameStops: {
 <p><span>在系上網段, 可直接從 </span><a href="http://wcm.cycu.org:88/">http://wcm.cycu.org:88</a><span><span> </span>下載.</span><a href="http://wcm.cycu.org:88/compile_copsim_cd2022.7z">compile_copsim_cd2022.7z</a></p>
 <p>將自己的倉儲<span> <span style="background-color: #ff9900;">git clone --recurse-submodules 倉儲網址</span> 到compile_copsim_cd2022\data\tmp中，</span></p>
 <p><img alt="" height="567" src="/images/圖片1.png" width="1008"/></p>
-<p>接著跟著<a href="https://mde.tw/cd2022_guide/content/w7%20%E4%BB%BB%E5%8B%99.html">W7任務</a>的步驟開始執行。</p>
-<p>1.git clone<span> </span><a href="https://github.com/mdecourse/scarysim.git">https://github.com/mdecourse/scarysim.git</a></p>
+<p>接著跟著<span style="background-color: #ffff99;"><a href="https://mde.tw/cd2022_guide/content/w7%20%E4%BB%BB%E5%8B%99.html" style="background-color: #ffff99;">W7任務</a></span>的步驟開始執行。</p>
+<p>1.<span style="background-color: #ffff99;">git clone <a href="https://github.com/mdecourse/scarysim.git" style="background-color: #ffff99;">https://github.com/mdecourse/scarysim.git</a></span></p>
 <p><img alt="" height="567" src="/images/圖片2.png" width="1008"/></p>
-<p>2.修改 scarysim.pro, 蓋掉第 11 行, 成為 # LIBS     += -lglut -lGLU</p>
+<p>2.修改 <span style="background-color: #ffff99;">scarysim.pro</span>, 蓋掉第 11 行, 成為 <span style="background-color: #ffff99;">#</span> LIBS     += -lglut -lGLU</p>
 <p><img alt="" height="567" src="/images/圖片8.png" width="1008"/></p>
-<p>3.cd scarysim</p>
+<p>3.<span style="background-color: #ffff99;">cd scarysim</span></p>
 <p><img alt="" height="567" src="/images/圖片3.png" width="1008"/></p>
-<p>4.qmake -o Makefile scarysim.pro</p>
+<p>4.<span style="background-color: #ffff99;">qmake -o Makefile scarysim.pro</span></p>
 <p><img alt="" height="567" src="/images/圖片4.png" width="1008"/></p>
-<p>5.mingw32-make -f Makefile.Release 可以在 release 目錄取得 scarysim.exe</p>
+<p>5.<span style="background-color: #ffff99;">mingw32-make -f Makefile.Release</span> 可以在 release 目錄取得 scarysim.exe</p>
 <p><img alt="" height="567" src="/images/圖片5.png" width="1008"/></p>
 <p>6.<span>將 <span style="background-color: #ffff99;">scarysim.exe</span> 移至<span style="background-color: #ffff99;">倉儲根目錄</span>, 並且需要 msys64_20210419\mingw64\bin 路徑中的 dll 動態連結程式庫配合執行.新創一個 <span style="background-color: #ffff99;">scarysim.bat</span>。</span></p>
 <p><img alt="" height="567" src="/images/圖片6.png" width="1008"/></p>
@@ -534,4 +534,40 @@ frameStops: {
 <p><span><img alt="" height="567" src="/images/圖片7.png" width="1008"/></span></p>
 <p><span>更改後開啟 <span style="color: #000000; background-color: #ffff99;">scarysim.bat</span> 可顯示下圖紅框所示</span></p>
 <p><span><img alt="" height="567" src="/images/圖片9.png" width="1008"/></span></p>
-<p><span></span></p>
+<h2>W8</h2>
+<p>查驗項目:</p>
+<ol>
+<li>uarm 各零件工程圖</li>
+<li>uarm 組合圖</li>
+<li>uarm 組合圖 STL 格式轉入 CoppeliaSim</li>
+<li>GUI slider 控制前三軸作動</li>
+<li>cmsimde 中第一階頁面, 標題為 midterm</li>
+<li>網誌名稱為 midterm.html</li>
+<li>流程與心得簡報</li>
+</ol>
+<p>繪圖過程</p>
+<p>
+<script>
+var winkVideoData = {
+dataVersion: 1,
+frameRate: 20,
+buttonFrameLength: 10,
+buttonFrameOffset: 5,
+frameStops: {
+},
+};
+</script>
+</p>
+<div class="winkVideoContainerClass"><video class="winkVideoClass" data-dirname="/static" data-varname="winkVideoData" height="630" width="1008">
+<source src="https://40923206-1.github.io/cd2022/downloads/0421-1.mp4" type="video/mp4"/></video>
+<div class="winkVideoOverlayClass"></div>
+<div class="winkVideoControlBarClass"><button class="winkVideoControlBarPlayButtonClass"></button> <button class="winkVideoControlBarPauseButtonClass"></button>
+<div class="winkVideoControlBarProgressLeftClass"></div>
+<div class="winkVideoControlBarProgressEmptyMiddleClass"></div>
+<div class="winkVideoControlBarProgressRightClass"></div>
+<div class="winkVideoControlBarProgressFilledMiddleClass"></div>
+<div class="winkVideoControlBarProgressThumbClass"></div>
+</div>
+<div class="winkVideoPlayOverlayClass"></div>
+</div>
+<p></p>
