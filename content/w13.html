@@ -151,6 +151,17 @@ img.add_border {
 </li>
 </ul>
 <p>-------------------------------------------------------------------------------------------------------</p>
+<p><strong>NX 與 CoppeliaSim 整合應用項目說明</strong></p>
+<p>prt 是 NX 的零組件檔案格式, 而 simscene.xml 則是 CoppeliaSim 的機電模擬場景格式. 目前並沒有直接從 NX 將組立件轉為 simscene.xml 的工具, 但 NXOpen API 中的 Python 延伸程式提供製作此一工具的可能性, 只是我們必須充分理解 NX 組立件與 CoppeliaSim 套件的檔案格式細節.</p>
+<p>上述從一套 MCAD 將零組件以 STL 或其他格式轉出, 然後以特定格式轉進另一套 CAD, CAE 或 CAM 的流程基本上具有相似的難度, 都必須充分了解兩套軟體間的檔案格式內容, 並運用程式方法或 API 延伸程式方法, 嘗試強化產品開發過程中的工作效能.</p>
+<p>由於我們可以看到 CoppeliaSim 的原始碼, 並且有能力自行編譯 CoppeliaSim 主體程式與延伸程式庫, 而且從 CoppeliaSim 場景轉出的完整 simscene.xml, 能夠看出場景中各元件的配置與整合方式. 但 NX 方在無法進入官方付費論壇的情況下, 就只能從殘缺的範例中尋找答案.</p>
+<p>我們將先從簡單的 MTB 機械手臂的 Pick and Place 工作流程下手，</p>
+<p><span style="background-color: #ffff00;">以 NX 繪製 MTB 機械手臂組立件<strong>→</strong>從 NX 轉出帶零件檔名的 MTB 組立件 STL<strong>→</strong></span></p>
+<p><span style="background-color: #ffff00;">自行縮放並進行 MTB STL零組件座標轉換運算<strong>→</strong>分析 simscene.xml 的零組件樹狀架構<strong>→</strong></span></p>
+<p><span style="background-color: #ffff00;">從零件 STL 自行組出 simscene.xml 檔案<strong>→</strong>將控制程式碼納入 simscene.xml 檔案<strong>→</strong></span></p>
+<p><span style="background-color: #ffff00;">測試並歸納結論</span></p>
+<p></p>
+<p><strong>說明如何在線上讀取各學員每週任務進度</strong></p>
 <p><span>在線上讀取各學員每週任務進度之<a href="https://gist.githubusercontent.com/mdecourse/e00a3b68d4defee1987d18cc998b377a/raw/76f525f56ce4def0316d4b46af8e9100f91c21c8/check_cd2022_page.py">程式</a></span></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
 from browser import document
