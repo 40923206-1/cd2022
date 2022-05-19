@@ -142,36 +142,67 @@ img.add_border {
     <div id="tipue_search_content">online << <a href='online.html'>Previous</a> <br /><h1>w13</h1>
 <p><a href="https://mde.tw/cd2022_guide/content/w13.html">老師網站連結</a></p>
 <ul>
-<li><a href="https://gmnfuedutw-my.sharepoint.com/:v:/g/personal/yen_gm_nfu_edu_tw/Ec5oEcyAJjhAsH2HXPDGjJYBEFsRFBxkXIIDQBCxhQlfWQ?e=ScArId">cd2022_w13_2a_part3.mp4</a> (Leo Editor 遞迴解讀程式碼說明, CoppeliaSim 4.3.0 Python scripting 環境設定說明)</li>
-</ul>
-<p><a href="https://gmnfuedutw-my.sharepoint.com/:u:/g/personal/yen_gm_nfu_edu_tw/EQ1CEW_PmjxLoEiXZ4tObe8BKfZseRN5qCR5jIlPNLUGNQ?e=WsoUPH">Leo Editor cd2022 template.leo</a></p>
-<p>在 CoppeliaSim 4.3.0 中解譯 Python scripts 設定:</p>
-<p>C:\CoppeliaSimEdu_4.3.0_rev3\system\usrset.txt</p>
-<div>
-<div class="syntaxhighlighter js" id="highlighter_529686">
-<table border="0" cellpadding="0" cellspacing="0">
-<tbody>
-<tr>
-<td class="gutter">
-<div class="line number1 index0 alt2">1</div>
-<div class="line number2 index1 alt1">2</div>
-</td>
-<td class="code">
-<div class="container">
-<div class="line number1 index0 alt2"><code class="js plain">defaultPython =  Y:\Python395/python.exe </code><code class="js comments">// e.g. c:/Python38/python.exe</code></div>
-<div class="line number2 index1 alt1"><code class="js plain">executeUnsafe = </code><code class="js keyword">true</code> <code class="js comments">// recommended to keep false.</code></div>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<ul>
 <li><a href="https://gmnfuedutw-my.sharepoint.com/:v:/g/personal/yen_gm_nfu_edu_tw/EcmwzqLi1_FEgyi7Gh3vOb8BkFz7xL97-ZNvQ26Da_MnUA?e=KVeh0n">cd2022_w13_2b_part1.mp4</a><span> </span>(NX 與 CoppeliaSim 整合應用項目說明)</li>
-<li><a href="https://gmnfuedutw-my.sharepoint.com/:v:/g/personal/yen_gm_nfu_edu_tw/EegXPYSdUGJItXCyCsTtne8BuQNqGeUyjVm8jLTkLg5GPA?e=Aq0CIa">cd2022_w13_2b_part2.mp4</a><span> </span>(uArm 主體零件工程圖取尺寸流程說明)</li>
+<li>
+<p><a href="https://gmnfuedutw-my.sharepoint.com/:v:/g/personal/yen_gm_nfu_edu_tw/EegXPYSdUGJItXCyCsTtne8BuQNqGeUyjVm8jLTkLg5GPA?e=Aq0CIa">cd2022_w13_2b_part2.mp4</a><span> </span>(uArm 主體零件工程圖取尺寸流程說明)</p>
+</li>
+<li>
+<p><a href="https://gmnfuedutw-my.sharepoint.com/:v:/g/personal/yen_gm_nfu_edu_tw/EcsSMO-AE7pHkgUbAvklEtABD7VdkX0fv-2Q0LQiwd9Mvw?e=BoFgeL">cd2022_w13_2b_part3.mp4</a><span> </span>(說明如何在線上讀取各學員每週任務進度)</p>
+</li>
 </ul>
-<p>----------------------------------------------------------------------------------------------------------</p><br />online << <a href='online.html'>Previous</a> </div>
+<p>-------------------------------------------------------------------------------------------------------</p>
+<p><span>在線上讀取各學員每週任務進度之<a href="https://gist.githubusercontent.com/mdecourse/e00a3b68d4defee1987d18cc998b377a/raw/76f525f56ce4def0316d4b46af8e9100f91c21c8/check_cd2022_page.py">程式</a></span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document
+
+brython_div = document["brython_div"]
+
+# 根據 href 與 content 將 html 元件中的 anchor 插入頁面
+def makeLink(href, content):
+    brython_div &lt;= html.A(content, href=href)
+    brython_div &lt;= html.BR()
+
+# 將 2b 學號、帳號與組別的網址設為 studlist_url
+aorb = "2b"
+page_title = "online"
+studlist_url = "https://mde.tw/studlist/2022spring/" + aorb + ".txt"
+# 利用 open() 與 read() 讀出資料
+data = open(studlist_url).read()
+# 若要 debug 可以查驗所取得的 data 內容
+#print(data)
+# 利用 split() 函式, 使用每一行的跳行符號\n切割所讀回的資料
+# 切割後的 stud 為數列 (list)
+stud = data.split("\n")
+# 列出去頭(標題)與去尾(空白行)的數列查驗
+#print(stud[1:-1])
+count = 0
+# blog name w6_studno.html
+member = []
+# 利用 for 迴圈逐一取出數列中的元素(每位學員的資料)
+for i in stud[1:-1]:
+    #print(i)
+    studno, github, grp = i.split("\t")
+    #print(studno, github, grp)
+    #print(type(grp))
+    stud_url = "https://" + github + ".github.io/cd2022/content/" + page_title + ".html"
+    url_title = studno + " " + page_title
+    try:
+        blog_content = open(stud_url).read()
+        makeLink(stud_url, url_title)
+    except:
+        #print(studno + " 尚無 w6 blog!")
+        pass
+    #makeLink(stud_url, url_title)
+    # 因為有人沒有組別或沒有登記 github 帳號
+    if grp != "" and github != "":
+        if grp == "1":
+            #print(studno)
+            count += 1
+    else:
+        print("尚未分組者:", studno)
+        
+print("done")</pre>
+<p><br/><br/></p><br />online << <a href='online.html'>Previous</a> </div>
         
     <!-- footer -->
       <div class="container">
