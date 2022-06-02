@@ -746,7 +746,8 @@ var winkVideoData = {
 <li>若有其他附加頁面, 則需縮至 1008x630 後插入適當位置</li>
 <li>完成後轉出對應的 mp4 放入頁面與網誌</li>
 </ol>
-<p>40923206的心得：W<span>8繪圖分配到Onshape進行繪製，先將</span><span>圖檔下載並解壓縮，而後將圖檔開啟並測量尺寸進行繪圖，將繪製完成的零件與同組成員一同進行組裝，花了一些時間將其組裝完畢。CoppeliaSim也是與組員一同進行工作，雖然上學期使用過，但在連接、裝軸的擺放上還是用了許多的時間完成。W10工作是下載老師的Wink進行註解，但自己還是自行錄製了第一及第三個影片來進行說明的部分。</span></p><h2>w12</h2>
+<p>40923206的心得：W<span>8繪圖分配到Onshape進行繪製，先將</span><span>圖檔下載並解壓縮，而後將圖檔開啟並測量尺寸進行繪圖，將繪製完成的零件與同組成員一同進行組裝，花了一些時間將其組裝完畢。CoppeliaSim也是與組員一同進行工作，雖然上學期使用過，但在連接、裝軸的擺放上還是用了許多的時間完成。W10工作是下載老師的Wink進行註解，但自己還是自行錄製了第一及第三個影片來進行說明的部分。</span></p>
+<h2>w12</h2>
 <ol>
 <li><a href="https://mde.tw/cd2022_guide/downloads/cd2022_uarm_nx12_imported.7z">cd2022_uarm_nx12_imported.7z</a><span> </span>中, 若計入重複引用的零件, 總數有多少? 請列出組成此一 uarm 機械手臂所需的 BOM 列表.</li>
 <li>若不計入重複引用的零件, 總數有多少? 請列出各零件名稱.</li>
@@ -835,4 +836,231 @@ for i in stud[1:-1]:
         print("尚未分組者:", studno)
         
 print("done")</pre>
-<p><br/><br/></p>
+<p><br/><br/><br/></p>
+<h2>w14</h2>
+<p>2b:</p>
+<ol>
+<li><a href="https://gmnfuedutw-my.sharepoint.com/:v:/g/personal/yen_gm_nfu_edu_tw/EUXfX4gfanBLhsgFnOnenYABnAF5wLQdG_WCeV3ElvxGww?e=qogc4M">2b_w14_part1.mp4</a><span> </span>(說明如何利用 Leo Editor 與 Python 編寫 CoppeliaSim 場景中的控制程式,<span> </span><a href="https://mde.tw/cd2022_guide/downloads/w14/w14_copsim_py_leo_ttt.7z">w14_copsim_py_leo_ttt.7z</a>)</li>
+<li><a href="https://gmnfuedutw-my.sharepoint.com/:v:/g/personal/yen_gm_nfu_edu_tw/EYN-ut16-J5CkHxzYFYLUaMBJTTaCjnzhdF0qHoMgCdurw?e=1dCUke">2b_w14_part2.mp4</a><span> </span>(說明如何利用 Lua 編寫 MTB robot 機械手臂的控制程式)</li>
+<li><a href="https://gmnfuedutw-my.sharepoint.com/:v:/g/personal/yen_gm_nfu_edu_tw/EflGSj2elMBNgIVHrkgt06EBCku3532ovvk-OnP0jwoSMg?e=iYqI9g">2b_w14_part3.mp4</a><span> </span>(說明如何利用 Lua 引入 suctionpad component 執行物件吸取與釋放)</li>
+</ol>
+<p>coppeliaSim 4.3.0 下載：<a href="https://gmnfuedutw-my.sharepoint.com/:u:/g/personal/yen_gm_nfu_edu_tw/Efmmx67kxSdGldOz-9z0Q6sBhEpNbw_IC2qXYFBjR_IAUg" target="_blank">CoppeliaSim 4.3.0 rev3</a><span><span> </span></span></p>
+<p></p>
+<p><span>導入外部 Python 程式碼:</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">#python
+# 導入與 .ttt 相同目錄的 external_python.py
+include external_python</pre>
+<p><span>external_python.py 內容:</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">'''
+#在 CoppeliaSim cube nonthreaded script 內容, 宣告使用 python 語法, 且導入
+#外部 external_python.py 程式碼
+ 
+#python
+ 
+include external_python
+'''
+import math
+ 
+def sysCall_init():
+    print("From non-threaded Python child script, sysCall_init")
+    # 因為在函式內改變全域變數 cube 的值, 必須宣告為 global
+    global cube
+    # 取得 script 所在物件, 與 cube 變數對應
+    cube=sim.getObject('.')
+    global pos
+    pos=sim.getObjectPosition(cube,-1)
+    global deg, theta
+    deg = math.pi/180.
+    theta = 0
+     
+def sysCall_actuation():
+    print("From non-threaded Python child script, sysCall_actuation")
+    global theta
+    # 順時鐘繞行
+    theta = theta - 0.01
+    # 以 (pos[0]-1, pos[1]) 為圓心, 半徑 1m 繞行
+    pos[0] = math.cos(theta)-1
+    print(pos[0])
+    pos[1] = math.sin(theta)
+    print(pos[1])
+    #pos[1]=pos[1]+0.01
+    sim.setObjectPosition(cube,-1,pos)
+     
+def sysCall_sensing():    
+    print("From non-threaded Python child script, sysCall_sensing")
+def sysCall_cleanup():
+    print("From non-threaded Python child script, sysCall_cleanup")</pre>
+<p>以鍵盤控制 MTB_nx robot (for CoppeliaSim 4.3.0):</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init() 
+    axis1=sim.getObject('/joint1')
+    axis2=sim.getObject('/joint2')
+    axis3=sim.getObject('/joint3')
+    suctionPad=sim.getObject('/suctionPad')
+    MTB_Robot=sim.getObject("/base")
+    BaseFrame=sim.getObject("/BaseFrame")
+    block =sim.getObject("/block")
+    rotation1 = 0
+    distance3 = 0
+    deg = math.pi/180.
+end
+ 
+ 
+function sysCall_actuation() 
+--[[
+    rotation1 = rotation1 + 0.5*deg
+    print(rotation1)
+    sim.setJointPosition(axis1, -rotation1)
+    sim.setJointPosition(axis2, -rotation1)
+]]
+ 
+    message, auxiliaryData=sim.getSimulatorMessage()
+        while message ~= -1 do
+            key=auxiliaryData[1]
+            sim.addStatusbarMessage('user press key:'..key)
+            if (message==sim.message_keypress) then
+               --if (auxiliaryData[1]==112) then --p activate the suction pad
+                if (auxiliaryData[1]==string.byte('p')) then
+                    -- if key p pressed activate the suction mode
+sim.setScriptSimulationParameter(sim.getScriptAssociatedWithObject(suctionPad),'active','true')
+                end -- if p
+                if (auxiliaryData[1]==113) then --q deactivate the suction pad
+                    -- if key q pressed deactivate the suction mode
+sim.setScriptSimulationParameter(sim.getScriptAssociatedWithObject(suctionPad),'active','false')
+                end -- if q
+                if (auxiliaryData[1]==114) then --r right turn in degree
+                    -- if key r pressed axis1 angle adds 5 degrees
+                     rotation1 = rotation1 + 5*deg
+                     sim.setJointPosition(axis1, rotation1)
+                end -- if r
+                if (auxiliaryData[1]==108) then --l left turn in degree
+                    -- if key l pressed axis1 angle substract 5 degrees
+                     rotation1 = rotation1 - 5*deg
+                     sim.setJointPosition(axis1, rotation1)
+                end -- if l
+                if (auxiliaryData[1]==100) then --d suction pad down
+                    -- if key d pressed axis3 will down 0.01 m
+                     distance3 = distance3 + 0.01
+                     sim.setJointPosition(axis3, distance3)
+                end -- if d
+                if (auxiliaryData[1]==117) then --u suction pad up
+                    -- if key u pressed axis3 will up 0.01 m
+                     distance3 = distance3 - 0.01
+                     sim.setJointPosition(axis3, distance3)
+                end -- if u
+                if (auxiliaryData[1]==99) then --c coordinate of block
+                    --blockPosition = sim.getObjectPosition(block, BaseFrame)
+                    blockPosition = sim.getObjectPosition(suctionPad, BaseFrame)
+                    sim.addStatusbarMessage("coordinate:"..table_to_string(blockPosition))
+                end --if c
+           end  -- if
+    message, auxiliaryData=sim.getSimulatorMessage()
+        end -- while
+end -- function
+function sysCall_sensing() 
+--[[
+    -- Read Proximity sensor (0= nothing detected, 1 = object detected)
+    local res = sim.readProximitySensor(proximity)
+ 
+    -- Check if possible to insert an new box
+    if (sim.getSimulationTime()-T_last_inserted &gt; T_insert) and not hasStopped then
+        insertBox()
+    end
+ 
+    -- If proximity sensor detects an object, stop the belt, stop inserting objects
+    if res == 1 and not hasStopped then
+        if boolList[1] then
+            sim.setScriptSimulationParameter(sim.handle_self,"conveyorBeltVelocity",0)
+            deltaTime = sim.getSimulationTime()-T_last_inserted
+            hasStopped = true
+        else
+            local box = table.remove(boxList,1)
+            local boxDummy = table.remove(boxDummyList,1)
+            table.remove(boolList,1)
+ 
+            sim.removeObject(box)
+            sim.removeObject(boxDummy)
+        end
+    end
+ 
+    -- If proximity sensor detects nothing and belt has stopped, start belt, continue inserting
+    if res == 0 and hasStopped then
+        sim.setScriptSimulationParameter(sim.handle_self,"conveyorBeltVelocity",beltSpeed)
+        hasStopped = false
+        T_last_inserted = sim.getSimulationTime()-deltaTime
+    end
+     
+]]--
+end
+function sysCall_cleanup() 
+end
+-- Convert a lua table into a lua syntactically correct string
+function table_to_string(tbl)
+    local result = "{"
+    for k, v in pairs(tbl) do
+        -- Check the key type (ignore any numerical keys - assume its an array)
+        if type(k) == "string" then
+            result = result.."[\""..k.."\"]".."="
+        end
+ 
+        -- Check the value type
+        if type(v) == "table" then
+            result = result..table_to_string(v)
+        elseif type(v) == "boolean" then
+            result = result..tostring(v)
+        else
+            v = round(v, 4)
+            result = result.."\""..v.."\""
+        end
+        result = result..","
+    end
+    -- Remove leading commas from the result
+    if result ~= "" then
+        result = result:sub(1, result:len()-1)
+    end
+    return result.."}"
+end
+function round(x, n)
+    n = math.pow(10, n or 0)
+    x = x * n
+    if x &gt;= 0 then x = math.floor(x + 0.5) else x = math.ceil(x - 0.5) end
+    return x / n
+end
+ 
+ 
+function insertBox()
+    -- Generate random numbers
+    local rand1 = math.random()
+    local rand2 = math.random()
+    local rand3 = math.random()
+    -- Generate random disturbances on position and orientation
+    local dx = (2*rand1-1)*0.1
+    local dy = (2*rand2-1)*0.1
+    local dphi = (2*rand3-1)*0.5
+    local disturbedCoordinates = {0,0,0}
+    disturbedCoordinates[1] = insertCoordinate[1]+dx
+    disturbedCoordinates[2] = insertCoordinate[2]+dy
+    disturbedCoordinates[3] = insertCoordinate[3]
+    -- Copy and paste box and boxDummy
+    local insertedObjects = sim.copyPasteObjects({box,boxDummy},0)
+    -- Update last inserted box time
+    T_last_inserted = sim.getSimulationTime()
+    -- Move and rotate
+    sim.setObjectPosition(insertedObjects[1],-1,disturbedCoordinates)
+    sim.setObjectOrientation(insertedObjects[1],-1,{0,0,dphi})
+    -- Store handles to boxes and dummies
+    table.insert(boxList,insertedObjects[1])
+    table.insert(boxDummyList,insertedObjects[2]) 
+    -- Decide if object is good or bad
+    local decision = math.random() 
+    if decision &lt;= goodPercentage then
+    -- Object is good, assign goodColor
+        sim.setShapeColor(insertedObjects[1],nil,sim.colorcomponent_ambient_diffuse,goodColor)
+        table.insert(boolList,true)
+    else
+    -- Object is bad, assign random color
+        sim.setShapeColor(insertedObjects[1],nil,sim.colorcomponent_ambient_diffuse,{rand1,rand2,rand3})
+        table.insert(boolList,false)
+    end
+end
+</pre>
+<p></p>
