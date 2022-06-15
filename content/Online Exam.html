@@ -139,32 +139,28 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w10 << <a href='w10.html'>Previous</a> <a href='w10_nx_integ.html'>Next</a> >> w10_nx_integ<br /><h1>w10_block_ui</h1>
+    <div id="tipue_search_content">w16 << <a href='w16.html'>Previous</a> <br /><h1>Online Exam</h1>
+<p>pdf檔案Onedrive下載:<a href="https://gmnfuedutw-my.sharepoint.com/:f:/g/personal/40923252_gm_nfu_edu_tw/Em13BjSN3aRHvnKWapJS-JYBrRmufs4VmhvZNYT3YIuIaQ?e=eEo6it">Online Exam</a></p>
 <p></p>
-<script>
-var winkVideoData = {
-  dataVersion: 1,
-  frameRate: 10,
-  buttonFrameLength: 5,
-  buttonFrameOffset: 2,
-  frameStops: {
-  },
-};
-</script>
-<!-- 接下來將 mp4 檔案從 downloads 目錄取出 -->
-<div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="./../cmsimde/static" data-varname="winkVideoData" height="630" muted="true" width="1008">
-<source src="https://40923206-1.github.io/cd2022/downloads/w10_block_ui.mp4" type="video/mp4"/></video>
-<div class="winkVideoOverlayClass"></div>
-<div class="winkVideoControlBarClass"><button class="winkVideoControlBarPlayButtonClass"></button> <button class="winkVideoControlBarPauseButtonClass"></button>
-<div class="winkVideoControlBarProgressLeftClass"></div>
-<div class="winkVideoControlBarProgressEmptyMiddleClass"></div>
-<div class="winkVideoControlBarProgressRightClass"></div>
-<div class="winkVideoControlBarProgressFilledMiddleClass"></div>
-<div class="winkVideoControlBarProgressThumbClass"></div>
-</div>
-<div class="winkVideoPlayOverlayClass"></div>
-</div>
-<br />w10 << <a href='w10.html'>Previous</a> <a href='w10_nx_integ.html'>Next</a> >> w10_nx_integ</div>
+<p>1.已知左側綠色底座的 uArm 機械手臂, 其基座座標原點位於絕對座標 (1.0, 0.25, 0), 啟動模擬後 green_suctionpad_frame 座標原點則位於 (0.22859, 0.26047, 0.36576), 請列出運算式說明, 啟動模擬後 joint1, joint2 與 joint3 分別以逆時針旋轉 5 度後, 求 green_suctionpad_frame 的絕對座標值.</p>
+<p></p>
+<p><img alt="" height="567" src="./../images/16.png" width="1008"/></p>
+<p></p>
+<p>分別利用程式控制joint1、2和3個逆時針轉5度後，點擊 green_suctionpad_frame 零件查看它的座標值(x:+0.4888 y:+0.3053 z:+0.2593)</p>
+<p>程式碼圖片:</p>
+<p></p>
+<p><img caption="false" height="630" src="./../images/17.png" width="661"/></p>
+<p></p>
+<p>2.已知左側 uarm 前方的紅色方塊頂端中心座標值為 (0.2, 0.4, 0.1), 請列出運算式說明左側 uarm 機械手臂的 joint1, joint2 與 joint3 該如何旋轉才能讓 end effector 的吸盤末端中心點移動至紅色方塊頂端中心?</p>
+<p>先算出 joint1 需要轉動多少度才可再綠色底座的 uArm 機械手臂與紅色方塊構成的直線上。</p>
+<p><img alt="" height="534" src="./../images/w1601.jpg" width="1008"/></p>
+<p></p>
+<p>可利用三角形的餘弦定理公式，從上視將綠色底座、紅色方塊、吸盤這三點構成一個三角形。然後利用點到點算出a、b、c 再使用公式可求出角度，而後再更改程式中轉一次的值，可以對到綠色底座的 uArm 機械<br/>手臂與紅色方塊構成的直線上。</p>
+<p></p>
+<p><img alt="" height="534" src="./../images/w1602.png" width="1008"/></p>
+<p><img alt="" height="506" src="./../images/w1603.jpg" width="1008"/></p>
+<p></p>
+<p>但吸盤還未到達紅色方塊頂端中心，目前尚在想方法完成。但有試著利用手動 的方式將吸盤到達紅色方塊頂端中心。</p><br />w16 << <a href='w16.html'>Previous</a> </div>
         
     <!-- footer -->
       <div class="container">
