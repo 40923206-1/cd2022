@@ -79,19 +79,16 @@
         <section>
             <h2>w8</h2>
             <p>
-                Press <strong>ESC</strong> to enter the slide overview.
+                w8繪圖分配到 <strong>Onshape</strong> 進行繪製。
             </p>
             <p>
-                Hold down the <strong>alt</strong> key (<strong>ctrl</strong> in Linux) and click on any element to zoom towards it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Click again to zoom back out.
-            </p>
-            <p>
-                (NOTE: Use ctrl + click in Linux.)
+                將老師的圖檔下載並解壓縮，而後將圖檔開啟並測量尺寸進行繪圖， 繪製完成的零件與成員一同進行組裝，CoppeliaSim的使用由於上學期使用過，但在裝軸還是需花上時間才完成。<a href="https://40923206-1.github.io/cd2022/content/w8.html">40923206 網站連結</a>
             </p>
         </section>
 
         <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-            <h2>w10</h2>
-            <p>Automatically animate matching elements across slides with <a href="https://revealjs.com/auto-animate/">Auto-Animate</a>.</p>
+            <h2>w9</h2>
+            <p>延續上週任務</p>
             <div class="r-hstack justify-center">
                 <div data-id="box1" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
                 <div data-id="box2" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
@@ -99,27 +96,34 @@
             </div>
         </section>
         <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+        <h2>w10</h2>
+            <p>
+                任務一： <strong>w10_block_ui</strong> 利用程式改變尺寸。<a href="https://40923206-1.github.io/cd2022/content/w10_block_ui.html">網站連結</a>
+            </p>
+             <p>
+                任務二： <strong>w10_nx_integ</strong> 註解影片。<a href="https://40923206-1.github.io/cd2022/content/w10_nx_integ.html">網站連結</a>
+            </p>
+             <p>
+                任務三： <strong>w10_ssh</strong> 註解及使用SSH。<a href="https://40923206-1.github.io/cd2022/content/w10_ssh.html">網站連結</a>
+            </p>
             <div class="r-hstack justify-center">
-                <div data-id="box1" data-auto-animate-delay="0" style="background: cyan; width: 150px; height: 100px; margin: 10px;"></div>
-                <div data-id="box2" data-auto-animate-delay="0.1" style="background: magenta; width: 150px; height: 100px; margin: 10px;"></div>
-                <div data-id="box3" data-auto-animate-delay="0.2" style="background: yellow; width: 150px; height: 100px; margin: 10px;"></div>
+                <div data-id="box1" data-auto-animate-delay="0" style="background: cyan; width: 70px; height: 70px; margin: 20px;"></div>
+                <div data-id="box2" data-auto-animate-delay="0.1" style="background: magenta; width: 70px; height: 70px; margin: 20px;"></div>
+                <div data-id="box3" data-auto-animate-delay="0.2" style="background: yellow; width: 70px; height: 70px; margin: 20px;"></div>
             </div>
-            <h2 style="margin-top: 20px;">w11</h2>
         </section>
-        <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-            <div class="r-stack">
-                <div data-id="box1" style="background: cyan; width: 300px; height: 300px; border-radius: 200px;"></div>
-                <div data-id="box2" style="background: magenta; width: 200px; height: 200px; border-radius: 200px;"></div>
-                <div data-id="box3" style="background: yellow; width: 100px; height: 100px; border-radius: 200px;"></div>
-            </div>
-            <h2 style="margin-top: 20px;">w12</h2>
+        <section>
+        <h2>w11</h2>
+            <p>
+                本週任務為分組解決衝突問題，並且大組使用SSH由組長建立完成。<a href="https://40923206-1.github.io/cd2022/content/w11.html">40923206 網站連結</a>
+            </p>
         </section>
 
         <section data-auto-animate>
             <h2 data-id="code-title">w12</h2>
                 <p>
                 本週任務為依老師給的影片利用NX12來列出零件總數、重量及所擬零件材質。下面為程式。
-                    </p>
+                </p>
             <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|17-21|33-37|70-77">
         import NXOpen
         # for get body mass
@@ -205,51 +209,72 @@
         </section>
 
         <section data-markdown>
-            <script type="text/template">
-                ## Markdown support
-
-                Write content using inline or external Markdown.
-                Instructions and more info available in the [readme](https://revealjs.com/markdown/).
-
-                ```[]
-                <section data-markdown>
-                  ## Markdown support
-
-                  Write content using inline or external Markdown.
-                  Instructions and more info available in the [readme](https://revealjs.com/markdown/).
-                </section>
-                ```
-            </script>
+        <h2>w13</h2>
+            <p>
+                本週改為線上課程，說明如何在線上讀取各學員每週任務進度，及uArm 主體零件部分工程圖。<a href="https://40923206-1.github.io/cd2022/content/w13.html">40923206 網站連結</a>
+            </p>
+            <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|11-14|28-41|42-50">
+        from browser import html
+        from browser import document
+         
+        brython_div = document["brython_div"]
+         
+        # 根據 href 與 content 將 html 元件中的 anchor 插入頁面
+        def makeLink(href, content):
+            brython_div <= html.A(content, href=href)
+            brython_div <= html.BR()
+         
+        # 將 2b 學號、帳號與組別的網址設為 studlist_url
+        aorb = "2b"
+        page_title = "online"
+        studlist_url = "https://mde.tw/studlist/2022spring/" + aorb + ".txt"
+        # 利用 open() 與 read() 讀出資料
+        data = open(studlist_url).read()
+        # 若要 debug 可以查驗所取得的 data 內容
+        #print(data)
+        # 利用 split() 函式, 使用每一行的跳行符號\n切割所讀回的資料
+        # 切割後的 stud 為數列 (list)
+        stud = data.split("\n")
+        # 列出去頭(標題)與去尾(空白行)的數列查驗
+        #print(stud[1:-1])
+        count = 0
+        # blog name w6_studno.html
+        member = []
+        # 利用 for 迴圈逐一取出數列中的元素(每位學員的資料)
+        for i in stud[1:-1]:
+            #print(i)
+            studno, github, grp = i.split("\t")
+            #print(studno, github, grp)
+            #print(type(grp))
+            stud_url = "https://" + github + ".github.io/cd2022/content/" + page_title + ".html"
+            url_title = studno + " " + page_title
+            try:
+                blog_content = open(stud_url).read()
+                makeLink(stud_url, url_title)
+            except:
+                #print(studno + " 尚無 w6 blog!")
+                pass
+            #makeLink(stud_url, url_title)
+            # 因為有人沒有組別或沒有登記 github 帳號
+            if grp != "" and github != "":
+                if grp == "1":
+                    #print(studno)
+                    count += 1
+            else:
+                print("尚未分組者:", studno)
+                 
+        print("done")
+            </code></pre>
         </section>
 
         <section>
-             <section id="fragments">
-                 <h2>Fragments</h2>
-                 <p>Hit the next arrow...</p>
-                 <p class="fragment">... to step through ...</p>
-                 <p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
-
-                 <aside class="notes">
-                     This slide has fragments which are also stepped through in the notes window.
-                 </aside>
-             </section>
-              
-             <section>
-                 <h2>Fragment Styles</h2>
-                 <p>There's different types of fragments, like:</p>
-                 <p class="fragment grow">grow</p>
-                 <p class="fragment shrink">shrink</p>
-                 <p class="fragment fade-out">fade-out</p>
-                 <p>
-                     <span style="display: inline-block;" class="fragment fade-right">fade-right, </span>
-                     <span style="display: inline-block;" class="fragment fade-up">up, </span>
-                     <span style="display: inline-block;" class="fragment fade-down">down, </span>
-                     <span style="display: inline-block;" class="fragment fade-left">left</span>
-                 </p>
-                 <p class="fragment fade-in-then-out">fade-in-then-out</p>
-                 <p class="fragment fade-in-then-semi-out">fade-in-then-semi-out</p>
-                 <p>Highlight <span class="fragment highlight-red">red</span> <span class="fragment highlight-blue">blue</span> <span class="fragment highlight-green">green</span></p>
-             </section>
+            <h2>w14</h2>
+            <p>
+                w14繪圖分配到 <strong>Onshape</strong> 進行繪製。
+            </p>
+            <p>
+                將老師的圖檔下載並解壓縮，而後將圖檔開啟並測量尺寸進行繪圖， 繪製完成的零件與成員一同進行組裝，CoppeliaSim的使用由於上學期使用過，但在裝軸還是需花上時間才完成。<a href="https://40923206-1.github.io/cd2022/content/w8.html">40923206 網站連結</a>
+            </p>
         </section>
 
         <section id="transitions">

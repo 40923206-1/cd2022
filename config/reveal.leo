@@ -33,10 +33,7 @@
 <v t="leo.20220314203825.19"><vh>slide 10</vh></v>
 <v t="leo.20220314203825.20"><vh>slide 11</vh></v>
 <v t="leo.20220314203825.21"><vh>slide 12</vh></v>
-<v t="leo.20220314203825.22"><vh>slide 13</vh>
-<v t="leo.20220314203825.23"><vh>slide 13-1</vh></v>
-<v t="leo.20220314203825.24"><vh>slide 13-2</vh></v>
-</v>
+<v t="leo.20220314203825.22"><vh>slide 13</vh></v>
 <v t="leo.20220314203825.25"><vh>slide 14</vh></v>
 <v t="leo.20220314203825.26"><vh>slide 15</vh></v>
 <v t="leo.20220314203825.27"><vh>slide 16</vh>
@@ -189,20 +186,17 @@ vertical: body pane on the botton</t>
 <t tx="leo.20220314203825.16">&lt;section&gt;
     &lt;h2&gt;w8&lt;/h2&gt;
     &lt;p&gt;
-        Press &lt;strong&gt;ESC&lt;/strong&gt; to enter the slide overview.
+        w8繪圖分配到 &lt;strong&gt;Onshape&lt;/strong&gt; 進行繪製。
     &lt;/p&gt;
     &lt;p&gt;
-        Hold down the &lt;strong&gt;alt&lt;/strong&gt; key (&lt;strong&gt;ctrl&lt;/strong&gt; in Linux) and click on any element to zoom towards it using &lt;a href="http://lab.hakim.se/zoom-js"&gt;zoom.js&lt;/a&gt;. Click again to zoom back out.
-    &lt;/p&gt;
-    &lt;p&gt;
-        (NOTE: Use ctrl + click in Linux.)
+        將老師的圖檔下載並解壓縮，而後將圖檔開啟並測量尺寸進行繪圖， 繪製完成的零件與成員一同進行組裝，CoppeliaSim的使用由於上學期使用過，但在裝軸還是需花上時間才完成。&lt;a href="https://40923206-1.github.io/cd2022/content/w8.html"&gt;40923206 網站連結&lt;/a&gt;
     &lt;/p&gt;
 &lt;/section&gt;
 
 </t>
 <t tx="leo.20220314203825.17">&lt;section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"&gt;
-    &lt;h2&gt;w10&lt;/h2&gt;
-    &lt;p&gt;Automatically animate matching elements across slides with &lt;a href="https://revealjs.com/auto-animate/"&gt;Auto-Animate&lt;/a&gt;.&lt;/p&gt;
+    &lt;h2&gt;w9&lt;/h2&gt;
+    &lt;p&gt;延續上週任務&lt;/p&gt;
     &lt;div class="r-hstack justify-center"&gt;
         &lt;div data-id="box1" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"&gt;&lt;/div&gt;
         &lt;div data-id="box2" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"&gt;&lt;/div&gt;
@@ -211,21 +205,28 @@ vertical: body pane on the botton</t>
 &lt;/section&gt;
 </t>
 <t tx="leo.20220314203825.18">&lt;section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"&gt;
+&lt;h2&gt;w10&lt;/h2&gt;
+    &lt;p&gt;
+        任務一： &lt;strong&gt;w10_block_ui&lt;/strong&gt; 利用程式改變尺寸。&lt;a href="https://40923206-1.github.io/cd2022/content/w10_block_ui.html"&gt;網站連結&lt;/a&gt;
+    &lt;/p&gt;
+     &lt;p&gt;
+        任務二： &lt;strong&gt;w10_nx_integ&lt;/strong&gt; 註解影片。&lt;a href="https://40923206-1.github.io/cd2022/content/w10_nx_integ.html"&gt;網站連結&lt;/a&gt;
+    &lt;/p&gt;
+     &lt;p&gt;
+        任務三： &lt;strong&gt;w10_ssh&lt;/strong&gt; 註解及使用SSH。&lt;a href="https://40923206-1.github.io/cd2022/content/w10_ssh.html"&gt;網站連結&lt;/a&gt;
+    &lt;/p&gt;
     &lt;div class="r-hstack justify-center"&gt;
-        &lt;div data-id="box1" data-auto-animate-delay="0" style="background: cyan; width: 150px; height: 100px; margin: 10px;"&gt;&lt;/div&gt;
-        &lt;div data-id="box2" data-auto-animate-delay="0.1" style="background: magenta; width: 150px; height: 100px; margin: 10px;"&gt;&lt;/div&gt;
-        &lt;div data-id="box3" data-auto-animate-delay="0.2" style="background: yellow; width: 150px; height: 100px; margin: 10px;"&gt;&lt;/div&gt;
+        &lt;div data-id="box1" data-auto-animate-delay="0" style="background: cyan; width: 70px; height: 70px; margin: 20px;"&gt;&lt;/div&gt;
+        &lt;div data-id="box2" data-auto-animate-delay="0.1" style="background: magenta; width: 70px; height: 70px; margin: 20px;"&gt;&lt;/div&gt;
+        &lt;div data-id="box3" data-auto-animate-delay="0.2" style="background: yellow; width: 70px; height: 70px; margin: 20px;"&gt;&lt;/div&gt;
     &lt;/div&gt;
-    &lt;h2 style="margin-top: 20px;"&gt;w11&lt;/h2&gt;
 &lt;/section&gt;
 </t>
-<t tx="leo.20220314203825.19">&lt;section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"&gt;
-    &lt;div class="r-stack"&gt;
-        &lt;div data-id="box1" style="background: cyan; width: 300px; height: 300px; border-radius: 200px;"&gt;&lt;/div&gt;
-        &lt;div data-id="box2" style="background: magenta; width: 200px; height: 200px; border-radius: 200px;"&gt;&lt;/div&gt;
-        &lt;div data-id="box3" style="background: yellow; width: 100px; height: 100px; border-radius: 200px;"&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;h2 style="margin-top: 20px;"&gt;w12&lt;/h2&gt;
+<t tx="leo.20220314203825.19">&lt;section&gt;
+&lt;h2&gt;w11&lt;/h2&gt;
+    &lt;p&gt;
+        本週任務為分組解決衝突問題，並且大組使用SSH由組長建立完成。&lt;a href="https://40923206-1.github.io/cd2022/content/w11.html"&gt;40923206 網站連結&lt;/a&gt;
+    &lt;/p&gt;
 &lt;/section&gt;
 
 </t>
@@ -237,7 +238,7 @@ vertical: body pane on the botton</t>
     &lt;h2 data-id="code-title"&gt;w12&lt;/h2&gt;
         &lt;p&gt;
         本週任務為依老師給的影片利用NX12來列出零件總數、重量及所擬零件材質。下面為程式。
-            &lt;/p&gt;
+        &lt;/p&gt;
     &lt;pre data-id="code-animation"&gt;&lt;code class="hljs" data-trim data-line-numbers="|17-21|33-37|70-77"&gt;
 import NXOpen
 # for get body mass
@@ -324,56 +325,76 @@ if __name__ == "__main__":
 
 </t>
 <t tx="leo.20220314203825.21">&lt;section data-markdown&gt;
-    &lt;script type="text/template"&gt;
-        ## Markdown support
-
-        Write content using inline or external Markdown.
-        Instructions and more info available in the [readme](https://revealjs.com/markdown/).
-
-        ```[]
-        &lt;section data-markdown&gt;
-          ## Markdown support
-
-          Write content using inline or external Markdown.
-          Instructions and more info available in the [readme](https://revealjs.com/markdown/).
-        &lt;/section&gt;
-        ```
-    &lt;/script&gt;
+&lt;h2&gt;w13&lt;/h2&gt;
+    &lt;p&gt;
+        本週改為線上課程，說明如何在線上讀取各學員每週任務進度，及uArm 主體零件部分工程圖。&lt;a href="https://40923206-1.github.io/cd2022/content/w13.html"&gt;40923206 網站連結&lt;/a&gt;
+    &lt;/p&gt;
+    &lt;pre data-id="code-animation"&gt;&lt;code class="hljs" data-trim data-line-numbers="|11-14|28-41|42-50"&gt;
+from browser import html
+from browser import document
+ 
+brython_div = document["brython_div"]
+ 
+# 根據 href 與 content 將 html 元件中的 anchor 插入頁面
+def makeLink(href, content):
+    brython_div &lt;= html.A(content, href=href)
+    brython_div &lt;= html.BR()
+ 
+# 將 2b 學號、帳號與組別的網址設為 studlist_url
+aorb = "2b"
+page_title = "online"
+studlist_url = "https://mde.tw/studlist/2022spring/" + aorb + ".txt"
+# 利用 open() 與 read() 讀出資料
+data = open(studlist_url).read()
+# 若要 debug 可以查驗所取得的 data 內容
+#print(data)
+# 利用 split() 函式, 使用每一行的跳行符號\n切割所讀回的資料
+# 切割後的 stud 為數列 (list)
+stud = data.split("\n")
+# 列出去頭(標題)與去尾(空白行)的數列查驗
+#print(stud[1:-1])
+count = 0
+# blog name w6_studno.html
+member = []
+# 利用 for 迴圈逐一取出數列中的元素(每位學員的資料)
+for i in stud[1:-1]:
+    #print(i)
+    studno, github, grp = i.split("\t")
+    #print(studno, github, grp)
+    #print(type(grp))
+    stud_url = "https://" + github + ".github.io/cd2022/content/" + page_title + ".html"
+    url_title = studno + " " + page_title
+    try:
+        blog_content = open(stud_url).read()
+        makeLink(stud_url, url_title)
+    except:
+        #print(studno + " 尚無 w6 blog!")
+        pass
+    #makeLink(stud_url, url_title)
+    # 因為有人沒有組別或沒有登記 github 帳號
+    if grp != "" and github != "":
+        if grp == "1":
+            #print(studno)
+            count += 1
+    else:
+        print("尚未分組者:", studno)
+         
+print("done")
+    &lt;/code&gt;&lt;/pre&gt;
 &lt;/section&gt;
 
 </t>
 <t tx="leo.20220314203825.22">&lt;section&gt;
-     @others
+    &lt;h2&gt;w14&lt;/h2&gt;
+    &lt;p&gt;
+        w14繪圖分配到 &lt;strong&gt;Onshape&lt;/strong&gt; 進行繪製。
+    &lt;/p&gt;
+    &lt;p&gt;
+        將老師的圖檔下載並解壓縮，而後將圖檔開啟並測量尺寸進行繪圖， 繪製完成的零件與成員一同進行組裝，CoppeliaSim的使用由於上學期使用過，但在裝軸還是需花上時間才完成。&lt;a href="https://40923206-1.github.io/cd2022/content/w8.html"&gt;40923206 網站連結&lt;/a&gt;
+    &lt;/p&gt;
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.23">&lt;section id="fragments"&gt;
-    &lt;h2&gt;Fragments&lt;/h2&gt;
-    &lt;p&gt;Hit the next arrow...&lt;/p&gt;
-    &lt;p class="fragment"&gt;... to step through ...&lt;/p&gt;
-    &lt;p&gt;&lt;span class="fragment"&gt;... a&lt;/span&gt; &lt;span class="fragment"&gt;fragmented&lt;/span&gt; &lt;span class="fragment"&gt;slide.&lt;/span&gt;&lt;/p&gt;
-
-    &lt;aside class="notes"&gt;
-        This slide has fragments which are also stepped through in the notes window.
-    &lt;/aside&gt;
-&lt;/section&gt;
- </t>
-<t tx="leo.20220314203825.24">&lt;section&gt;
-    &lt;h2&gt;Fragment Styles&lt;/h2&gt;
-    &lt;p&gt;There's different types of fragments, like:&lt;/p&gt;
-    &lt;p class="fragment grow"&gt;grow&lt;/p&gt;
-    &lt;p class="fragment shrink"&gt;shrink&lt;/p&gt;
-    &lt;p class="fragment fade-out"&gt;fade-out&lt;/p&gt;
-    &lt;p&gt;
-        &lt;span style="display: inline-block;" class="fragment fade-right"&gt;fade-right, &lt;/span&gt;
-        &lt;span style="display: inline-block;" class="fragment fade-up"&gt;up, &lt;/span&gt;
-        &lt;span style="display: inline-block;" class="fragment fade-down"&gt;down, &lt;/span&gt;
-        &lt;span style="display: inline-block;" class="fragment fade-left"&gt;left&lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p class="fragment fade-in-then-out"&gt;fade-in-then-out&lt;/p&gt;
-    &lt;p class="fragment fade-in-then-semi-out"&gt;fade-in-then-semi-out&lt;/p&gt;
-    &lt;p&gt;Highlight &lt;span class="fragment highlight-red"&gt;red&lt;/span&gt; &lt;span class="fragment highlight-blue"&gt;blue&lt;/span&gt; &lt;span class="fragment highlight-green"&gt;green&lt;/span&gt;&lt;/p&gt;
-&lt;/section&gt;</t>
 <t tx="leo.20220314203825.25">&lt;section id="transitions"&gt;
     &lt;h2&gt;Transition Styles&lt;/h2&gt;
     &lt;p&gt;
