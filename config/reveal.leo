@@ -337,8 +337,8 @@ brython_div = document["brython_div"]
  
 # 根據 href 與 content 將 html 元件中的 anchor 插入頁面
 def makeLink(href, content):
-    brython_div &lt;= html.A(content, href=href)
-    brython_div &lt;= html.BR()
+    brython_div = html.A(content, href=href)
+    brython_div = html.BR()
  
 # 將 2b 學號、帳號與組別的網址設為 studlist_url
 aorb = "2b"
@@ -387,44 +387,225 @@ print("done")
 <t tx="leo.20220314203825.22">&lt;section&gt;
     &lt;h2&gt;w14&lt;/h2&gt;
     &lt;p&gt;
-        w14繪圖分配到 &lt;strong&gt;Onshape&lt;/strong&gt; 進行繪製。
+       利用NX12繪製MTB組裝並匯入CoppeliaSim中用鍵盤操控其運作。&lt;a href="https://40923206-1.github.io/cd2022/content/w14.html"&gt;40923206 網站連結&lt;/a&gt;
     &lt;/p&gt;
     &lt;p&gt;
-        將老師的圖檔下載並解壓縮，而後將圖檔開啟並測量尺寸進行繪圖， 繪製完成的零件與成員一同進行組裝，CoppeliaSim的使用由於上學期使用過，但在裝軸還是需花上時間才完成。&lt;a href="https://40923206-1.github.io/cd2022/content/w8.html"&gt;40923206 網站連結&lt;/a&gt;
+       鍵盤控制 MTB_nx robot (for CoppeliaSim 4.3.0)&lt;a href="https://gmnfuedutw-my.sharepoint.com/:u:/g/personal/yen_gm_nfu_edu_tw/Efmmx67kxSdGldOz-9z0Q6sBhEpNbw_IC2qXYFBjR_IAUg"&gt;CoppeliaSim 4.3.0&lt;/a&gt;
+    &lt;/p&gt;
+    &lt;pre data-id="code-animation"&gt;&lt;code class="hljs" data-trim data-line-numbers="|1-11|31-36"&gt;
+function sysCall_init() 
+    axis1=sim.getObject('/joint1')
+    axis2=sim.getObject('/joint2')
+    axis3=sim.getObject('/joint3')
+    suctionPad=sim.getObject('/suctionPad')
+    MTB_Robot=sim.getObject("/base")
+    BaseFrame=sim.getObject("/BaseFrame")
+    block =sim.getObject("/block")
+    rotation1 = 0
+    distance3 = 0
+    deg = math.pi/180.
+end
+  
+  
+function sysCall_actuation() 
+--[[
+    rotation1 = rotation1 + 0.5*deg
+    print(rotation1)
+    sim.setJointPosition(axis1, -rotation1)
+    sim.setJointPosition(axis2, -rotation1)
+]]
+  
+    message, auxiliaryData=sim.getSimulatorMessage()
+        while message ~= -1 do
+            key=auxiliaryData[1]
+            sim.addStatusbarMessage('user press key:'..key)
+            if (message==sim.message_keypress) then
+               --if (auxiliaryData[1]==112) then --p activate the suction pad
+                if (auxiliaryData[1]==string.byte('p')) then
+                    -- if key p pressed activate the suction mode
+sim.setScriptSimulationParameter(sim.getScriptAssociatedWithObject(suctionPad),'active','true')
+                end -- if p
+                if (auxiliaryData[1]==113) then --q deactivate the suction pad
+                    -- if key q pressed deactivate the suction mode
+sim.setScriptSimulationParameter(sim.getScriptAssociatedWithObject(suctionPad),'active','false')
+                end -- if q
+                if (auxiliaryData[1]==114) then --r right turn in degree
+                    -- if key r pressed axis1 angle adds 5 degrees
+                     rotation1 = rotation1 + 5*deg
+                     sim.setJointPosition(axis1, rotation1)
+                end -- if r
+                if (auxiliaryData[1]==108) then --l left turn in degree
+                    -- if key l pressed axis1 angle substract 5 degrees
+                     rotation1 = rotation1 - 5*deg
+                     sim.setJointPosition(axis1, rotation1)
+                end -- if l
+                if (auxiliaryData[1]==100) then --d suction pad down
+                    -- if key d pressed axis3 will down 0.01 m
+                     distance3 = distance3 + 0.01
+                     sim.setJointPosition(axis3, distance3)
+                end -- if d
+                if (auxiliaryData[1]==117) then --u suction pad up
+                    -- if key u pressed axis3 will up 0.01 m
+                     distance3 = distance3 - 0.01
+                     sim.setJointPosition(axis3, distance3)
+                end -- if u
+                if (auxiliaryData[1]==99) then --c coordinate of block
+                    --blockPosition = sim.getObjectPosition(block, BaseFrame)
+                    blockPosition = sim.getObjectPosition(suctionPad, BaseFrame)
+                    sim.addStatusbarMessage("coordinate:"..table_to_string(blockPosition))
+                end --if c
+           end  -- if
+    message, auxiliaryData=sim.getSimulatorMessage()
+        end -- while
+end -- function
+function sysCall_sensing() 
+--[[
+    -- Read Proximity sensor (0= nothing detected, 1 = object detected)
+    local res = sim.readProximitySensor(proximity)
+  
+    -- Check if possible to insert an new box
+    if (sim.getSimulationTime()-T_last_inserted &gt; T_insert) and not hasStopped then
+        insertBox()
+    end
+  
+    -- If proximity sensor detects an object, stop the belt, stop inserting objects
+    if res == 1 and not hasStopped then
+        if boolList[1] then
+            sim.setScriptSimulationParameter(sim.handle_self,"conveyorBeltVelocity",0)
+            deltaTime = sim.getSimulationTime()-T_last_inserted
+            hasStopped = true
+        else
+            local box = table.remove(boxList,1)
+            local boxDummy = table.remove(boxDummyList,1)
+            table.remove(boolList,1)
+  
+            sim.removeObject(box)
+            sim.removeObject(boxDummy)
+        end
+    end
+  
+    -- If proximity sensor detects nothing and belt has stopped, start belt, continue inserting
+    if res == 0 and hasStopped then
+        sim.setScriptSimulationParameter(sim.handle_self,"conveyorBeltVelocity",beltSpeed)
+        hasStopped = false
+        T_last_inserted = sim.getSimulationTime()-deltaTime
+    end
+      
+]]--
+end
+function sysCall_cleanup() 
+end
+-- Convert a lua table into a lua syntactically correct string
+function table_to_string(tbl)
+    local result = "{"
+    for k, v in pairs(tbl) do
+        -- Check the key type (ignore any numerical keys - assume its an array)
+        if type(k) == "string" then
+            result = result.."[\""..k.."\"]".."="
+        end
+  
+        -- Check the value type
+        if type(v) == "table" then
+            result = result..table_to_string(v)
+        elseif type(v) == "boolean" then
+            result = result..tostring(v)
+        else
+            v = round(v, 4)
+            result = result.."\""..v.."\""
+        end
+        result = result..","
+    end
+    -- Remove leading commas from the result
+    if result ~= "" then
+        result = result:sub(1, result:len()-1)
+    end
+    return result.."}"
+end
+function round(x, n)
+    n = math.pow(10, n or 0)
+    x = x * n
+    if x &gt;= 0 then x = math.floor(x + 0.5) else x = math.ceil(x - 0.5) end
+    return x / n
+end
+  
+  
+function insertBox()
+    -- Generate random numbers
+    local rand1 = math.random()
+    local rand2 = math.random()
+    local rand3 = math.random()
+    -- Generate random disturbances on position and orientation
+    local dx = (2*rand1-1)*0.1
+    local dy = (2*rand2-1)*0.1
+    local dphi = (2*rand3-1)*0.5
+    local disturbedCoordinates = {0,0,0}
+    disturbedCoordinates[1] = insertCoordinate[1]+dx
+    disturbedCoordinates[2] = insertCoordinate[2]+dy
+    disturbedCoordinates[3] = insertCoordinate[3]
+    -- Copy and paste box and boxDummy
+    local insertedObjects = sim.copyPasteObjects({box,boxDummy},0)
+    -- Update last inserted box time
+    T_last_inserted = sim.getSimulationTime()
+    -- Move and rotate
+    sim.setObjectPosition(insertedObjects[1],-1,disturbedCoordinates)
+    sim.setObjectOrientation(insertedObjects[1],-1,{0,0,dphi})
+    -- Store handles to boxes and dummies
+    table.insert(boxList,insertedObjects[1])
+    table.insert(boxDummyList,insertedObjects[2]) 
+    -- Decide if object is good or bad
+    local decision = math.random() 
+    if decision = goodPercentage then
+    -- Object is good, assign goodColor
+        sim.setShapeColor(insertedObjects[1],nil,sim.colorcomponent_ambient_diffuse,goodColor)
+        table.insert(boolList,true)
+    else
+    -- Object is bad, assign random color
+        sim.setShapeColor(insertedObjects[1],nil,sim.colorcomponent_ambient_diffuse,{rand1,rand2,rand3})
+        table.insert(boolList,false)
+    end
+end
+
+    &lt;/code&gt;&lt;/pre&gt;
+&lt;/section&gt;
+
+</t>
+<t tx="leo.20220314203825.25">&lt;section&gt;
+    &lt;h2&gt;w15&lt;/h2&gt;
+    &lt;p&gt;
+       利用上週之程式將 uram robot匯入CoppeliaSim中用鍵盤操控其運作。&lt;a href="https://40923206-1.github.io/cd2022/content/w15.html"&gt;40923206 網站連結&lt;/a&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+&lt;script&gt;
+var winkVideoData = {
+  dataVersion: 1,
+  frameRate: 10,
+  buttonFrameLength: 5,
+  buttonFrameOffset: 2,
+  frameStops: {
+  },
+};
+&lt;/script&gt;
+&lt;!-- 接下來將 mp4 檔案從 downloads 目錄取出 --&gt;
+&lt;div class="winkVideoContainerClass"&gt;&lt;video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="./../cmsimde/static" data-varname="winkVideoData" height="630" muted="true" width="1008"&gt;
+&lt;source src="./../downloads/w15409232bg3.mp4" type="video/mp4"/&gt;&lt;/video&gt;
+&lt;div class="winkVideoOverlayClass"&gt;&lt;/div&gt;
+&lt;div class="winkVideoControlBarClass"&gt;&lt;button class="winkVideoControlBarPlayButtonClass"&gt;&lt;/button&gt; &lt;button class="winkVideoControlBarPauseButtonClass"&gt;&lt;/button&gt;
+&lt;div class="winkVideoControlBarProgressLeftClass"&gt;&lt;/div&gt;
+&lt;div class="winkVideoControlBarProgressEmptyMiddleClass"&gt;&lt;/div&gt;
+&lt;div class="winkVideoControlBarProgressRightClass"&gt;&lt;/div&gt;
+&lt;div class="winkVideoControlBarProgressFilledMiddleClass"&gt;&lt;/div&gt;
+&lt;div class="winkVideoControlBarProgressThumbClass"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="winkVideoPlayOverlayClass"&gt;&lt;/div&gt;
+&lt;/div&gt;
     &lt;/p&gt;
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.25">&lt;section id="transitions"&gt;
-    &lt;h2&gt;Transition Styles&lt;/h2&gt;
+<t tx="leo.20220314203825.26">&lt;section&gt;
+    &lt;h2&gt;w16&lt;/h2&gt;
     &lt;p&gt;
-        You can select from different transitions, like: &lt;br&gt;
-        &lt;a href="?transition=none#/transitions"&gt;None&lt;/a&gt; -
-        &lt;a href="?transition=fade#/transitions"&gt;Fade&lt;/a&gt; -
-        &lt;a href="?transition=slide#/transitions"&gt;Slide&lt;/a&gt; -
-        &lt;a href="?transition=convex#/transitions"&gt;Convex&lt;/a&gt; -
-        &lt;a href="?transition=concave#/transitions"&gt;Concave&lt;/a&gt; -
-        &lt;a href="?transition=zoom#/transitions"&gt;Zoom&lt;/a&gt;
-    &lt;/p&gt;
-&lt;/section&gt;
-
-</t>
-<t tx="leo.20220314203825.26">&lt;section id="themes"&gt;
-    &lt;h2&gt;Themes&lt;/h2&gt;
-    &lt;p&gt;
-        reveal.js comes with a few themes built in: &lt;br&gt;
-        &lt;!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. --&gt;
-        &lt;a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;"&gt;Black (default)&lt;/a&gt; -
-        &lt;a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;"&gt;White&lt;/a&gt; -
-        &lt;a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;"&gt;League&lt;/a&gt; -
-        &lt;a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;"&gt;Sky&lt;/a&gt; -
-        &lt;a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;"&gt;Beige&lt;/a&gt; -
-        &lt;a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;"&gt;Simple&lt;/a&gt; &lt;br&gt;
-        &lt;a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;"&gt;Serif&lt;/a&gt; -
-        &lt;a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;"&gt;Blood&lt;/a&gt; -
-        &lt;a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;"&gt;Night&lt;/a&gt; -
-        &lt;a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;"&gt;Moon&lt;/a&gt; -
-        &lt;a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;"&gt;Solarized&lt;/a&gt;
+       依照老師所給的Online Exam題目，分組討論完成並說明。&lt;a href="https://40923206-1.github.io/cd2022/content/Online%20Exam.html"&gt;40923206 網站連結&lt;/a&gt;
     &lt;/p&gt;
 &lt;/section&gt;
 </t>
