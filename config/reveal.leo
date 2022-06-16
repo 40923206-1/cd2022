@@ -23,7 +23,6 @@
 <v t="leo.20220314203825.9"><vh>slide3</vh>
 <v t="leo.20220314203825.10"><vh>slide 3-1</vh></v>
 <v t="leo.20220314203825.11"><vh>slide 3-2</vh></v>
-<v t="leo.20220314203825.12"><vh>slide 3-3</vh></v>
 </v>
 <v t="leo.20220314203825.13"><vh>slide 4</vh></v>
 <v t="leo.20220314203825.14"><vh>slide 5 </vh></v>
@@ -155,8 +154,6 @@ vertical: body pane on the botton</t>
 <t tx="leo.20220314203825.10">&lt;section&gt;
     &lt;h2&gt;w2&lt;/h2&gt;
     &lt;p&gt;將分組名單個人網站及倉儲連結任務完成&lt;/p&gt;
-    &lt;p&gt;Use the &lt;em&gt;Space&lt;/em&gt; key to navigate through all slides.&lt;/p&gt;
-    &lt;br&gt;
     &lt;a href="#" class="navigate-down"&gt;
         &lt;img class="r-frame" style="background: rgba(255,255,255,0.1);" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow"&gt;
     &lt;/a&gt;
@@ -164,78 +161,33 @@ vertical: body pane on the botton</t>
 </t>
 <t tx="leo.20220314203825.11">&lt;section&gt;
     &lt;h2&gt;班級名單&lt;/h2&gt;
-    &lt;p&gt;Nested slides are useful for adding additional detail underneath a high level horizontal slide.&lt;/p&gt;
-&lt;/section&gt;
-</t>
-<t tx="leo.20220314203825.12">&lt;section&gt;
-    &lt;h2&gt;Basement Level 2&lt;/h2&gt;
-    &lt;p&gt;That's it, time to go back up.&lt;/p&gt;
-    &lt;br&gt;
-    &lt;a href="#/2"&gt;
-        &lt;img class="r-frame" style="background: rgba(255,255,255,0.1); transform: rotate(180deg);" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow"&gt;
-    &lt;/a&gt;
-&lt;/section&gt;</t>
-<t tx="leo.20220314203825.13">&lt;section&gt;
-    &lt;h2&gt;Slides&lt;/h2&gt;
     &lt;p&gt;
-        Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at &lt;a href="https://slides.com" target="_blank"&gt;https://slides.com&lt;/a&gt;.
+        Created by &lt;a href="https://40923206-1.github.io/cd2022/content/class%20link.html"&gt;40923206網站連結&lt;/a&gt;
+    &lt;/p&gt;</t>
+<t tx="leo.20220314203825.13">&lt;section&gt;
+    &lt;h2&gt;w3&lt;/h2&gt;
+    &lt;p&gt;
+        本週任務為依老師給的影片連結，組內分配負責影片，完成NX1980相關介紹。&lt;a href="https://40923206-1.github.io/cd2022/content/w3.html"&gt;40923206網站連結&lt;/a&gt;
     &lt;/p&gt;
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20220314203825.14">&lt;section data-auto-animate&gt;
-    &lt;h2 data-id="code-title"&gt;Pretty Code&lt;/h2&gt;
-    &lt;pre data-id="code-animation"&gt;&lt;code class="hljs" data-trim data-line-numbers&gt;
-        import React, { useState } from 'react';
-
-        function Example() {
-          const [count, setCount] = useState(0);
-
-          return (
-            ...
-          );
-        }
-    &lt;/code&gt;&lt;/pre&gt;
-    &lt;p&gt;Code syntax highlighting courtesy of &lt;a href="https://highlightjs.org/usage/"&gt;highlight.js&lt;/a&gt;.&lt;/p&gt;
+<t tx="leo.20220314203825.14">&lt;section&gt;
+    &lt;h2&gt;w6&lt;/h2&gt;
+    &lt;p&gt;
+        本週任務為依老師給的影片利用leo建立blog網誌新增內容。&lt;a href="https://40923206-1.github.io/cd2022/blog/w6_40923206.html"&gt;40923206 blog網站連結&lt;/a&gt;
+    &lt;/p&gt;
 &lt;/section&gt;
-
 </t>
-<t tx="leo.20220314203825.15">&lt;section data-auto-animate&gt;
-    &lt;h2 data-id="code-title"&gt;With animations&lt;/h2&gt;
-    &lt;pre data-id="code-animation"&gt;&lt;code class="hljs" data-trim data-line-numbers="|4,8-11|17|22-24"&gt;
-        import React, { useState } from 'react';
-
-        function Example() {
-          const [count, setCount] = useState(0);
-
-          return (
-            &amp;lt;div&amp;gt;
-              &amp;lt;p&amp;gt;You clicked {count} times&amp;lt;/p&amp;gt;
-              &amp;lt;button onClick={() =&amp;gt; setCount(count + 1)}&amp;gt;
-                Click me
-              &amp;lt;/button&amp;gt;
-            &amp;lt;/div&amp;gt;
-          );
-        }
-
-        function SecondExample() {
-          const [count, setCount] = useState(0);
-
-          return (
-            &amp;lt;div&amp;gt;
-              &amp;lt;p&amp;gt;You clicked {count} times&amp;lt;/p&amp;gt;
-              &amp;lt;button onClick={() =&amp;gt; setCount(count + 1)}&amp;gt;
-                Click me
-              &amp;lt;/button&amp;gt;
-            &amp;lt;/div&amp;gt;
-          );
-        }
-    &lt;/code&gt;&lt;/pre&gt;
+<t tx="leo.20220314203825.15">&lt;section&gt;
+    &lt;h2&gt;w7&lt;/h2&gt;
+    &lt;p&gt;
+        本週任務為依老師給的影片設法以隨身程式系統編譯程式碼並做出本週blog。&lt;a href="https://40923206-1.github.io/cd2022/content/w7.html"&gt;40923206網站連結&lt;/a&gt;及&lt;a href="https://40923206-1.github.io/cd2022/blog/w7_summary.html"&gt;40923206 blog網站連結&lt;/a&gt;
+    &lt;/p&gt;
 &lt;/section&gt;
-
 </t>
 <t tx="leo.20220314203825.16">&lt;section&gt;
-    &lt;h2&gt;Point of View&lt;/h2&gt;
+    &lt;h2&gt;w8&lt;/h2&gt;
     &lt;p&gt;
         Press &lt;strong&gt;ESC&lt;/strong&gt; to enter the slide overview.
     &lt;/p&gt;
@@ -249,7 +201,7 @@ vertical: body pane on the botton</t>
 
 </t>
 <t tx="leo.20220314203825.17">&lt;section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"&gt;
-    &lt;h2&gt;Auto-Animate&lt;/h2&gt;
+    &lt;h2&gt;w10&lt;/h2&gt;
     &lt;p&gt;Automatically animate matching elements across slides with &lt;a href="https://revealjs.com/auto-animate/"&gt;Auto-Animate&lt;/a&gt;.&lt;/p&gt;
     &lt;div class="r-hstack justify-center"&gt;
         &lt;div data-id="box1" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"&gt;&lt;/div&gt;
@@ -264,7 +216,7 @@ vertical: body pane on the botton</t>
         &lt;div data-id="box2" data-auto-animate-delay="0.1" style="background: magenta; width: 150px; height: 100px; margin: 10px;"&gt;&lt;/div&gt;
         &lt;div data-id="box3" data-auto-animate-delay="0.2" style="background: yellow; width: 150px; height: 100px; margin: 10px;"&gt;&lt;/div&gt;
     &lt;/div&gt;
-    &lt;h2 style="margin-top: 20px;"&gt;Auto-Animate&lt;/h2&gt;
+    &lt;h2 style="margin-top: 20px;"&gt;w11&lt;/h2&gt;
 &lt;/section&gt;
 </t>
 <t tx="leo.20220314203825.19">&lt;section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"&gt;
@@ -273,7 +225,7 @@ vertical: body pane on the botton</t>
         &lt;div data-id="box2" style="background: magenta; width: 200px; height: 200px; border-radius: 200px;"&gt;&lt;/div&gt;
         &lt;div data-id="box3" style="background: yellow; width: 100px; height: 100px; border-radius: 200px;"&gt;&lt;/div&gt;
     &lt;/div&gt;
-    &lt;h2 style="margin-top: 20px;"&gt;Auto-Animate&lt;/h2&gt;
+    &lt;h2 style="margin-top: 20px;"&gt;w12&lt;/h2&gt;
 &lt;/section&gt;
 
 </t>
@@ -281,11 +233,93 @@ vertical: body pane on the botton</t>
 &lt;html lang="en"&gt;
 @others
 &lt;/html&gt;</t>
-<t tx="leo.20220314203825.20">&lt;section&gt;
-    &lt;h2&gt;Touch Optimized&lt;/h2&gt;
-    &lt;p&gt;
-        Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-    &lt;/p&gt;
+<t tx="leo.20220314203825.20">&lt;section data-auto-animate&gt;
+    &lt;h2 data-id="code-title"&gt;w12&lt;/h2&gt;
+        &lt;p&gt;
+        本週任務為依老師給的影片利用NX12來列出零件總數、重量及所擬零件材質。下面為程式。
+            &lt;/p&gt;
+    &lt;pre data-id="code-animation"&gt;&lt;code class="hljs" data-trim data-line-numbers="|17-21|33-37|70-77"&gt;
+import NXOpen
+# for get body mass
+import NXOpen.UF
+
+# 計算引用零件數目
+partNumber = 0
+# 存放個別零件名稱的數列
+partList = []
+totalVolume = 0
+totalMass = 0
+partCount = 0
+    
+def main():
+    # 取得目前開啟的工作階段
+    theSession = NXOpen.Session.GetSession()
+    theUfSession = NXOpen.UF.UFSession.GetUFSession()
+    # 建立 ListingWindow
+    listWin= theSession.ListingWindow
+    # 開啟零件檔案
+    try:
+        basePart1 = theSession.Parts.OpenBaseDisplay("Y:/mdecycu/cd2022_guide/downloads/cd2022_uarm/uArmSwiftPro_UP1300_3D_assembly.prt")
+    except:
+        # 零件已經開啟
+        pass
+
+    def getPart(comp):
+        global partNumber, partList, totalVolume, totalMass, partCount
+        # 利用組立組件的根組件 GetChildren 方法逐一列出各子組件的名稱
+        for child in comp.GetChildren():
+            theBodyTags = []
+            # 針對零件
+            if child.GetChildren() == []:
+                # Find child body object
+                childBody = child.FindObject("PARTIAL_PROTO#.Bodies|Body8")
+                partCount += 1
+                listWin.WriteLine("*"*30)
+                listWin.WriteLine("第 " + str(partCount) + " 個零件:")
+                if childBody.IsSolidBody:
+                    listWin.WriteLine(str(childBody.Tag))
+                    theBodyTags.append(childBody.Tag)
+                (massProps, Stats) = theUfSession.Modeling.AskMassProps3d(theBodyTags, len(theBodyTags), 1, 4, 1., 1, [0.99,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0])
+                listWin.WriteLine("units: kg, mm")
+                # plain steel density 7.85 g/cm3
+                # aluminum density 2.7 g/cm3
+                totalVolume += round(massProps[1]*1E6, 4)
+                totalMass += round(massProps[1]*1E6*2.7, 4)
+                listWin.WriteLine("surface area: " + str(round(massProps[0]*1E4, 4)) + "cm^2")
+                listWin.WriteLine("volume: " + str(round(massProps[1]*1E6, 4)) + "cm^3")
+                
+                listWin.WriteLine("weight: " + str(round(massProps[1]*1E6*2.7, 4)) + "g")
+                listWin.WriteLine(child.DisplayName)
+                # 個別零件數列不計入重複引用的零件
+                if child.DisplayName not in partList:
+                    partList.append(child.DisplayName)
+                # 引用零件數累計
+                partNumber += 1
+            else:
+                # 針對次組立件
+                getPart(child)
+    
+    workPart = theSession.Parts.Work
+    unit1 = workPart.UnitCollection.FindObject("MilliMeter")
+    
+    # 開啟 Listing Window
+    listWin.Open()
+    # 將已經開啟的零件對應至 displayPart
+    displayPart = theSession.Parts.Display
+    getPart(displayPart.ComponentAssembly.RootComponent)
+
+    # 在 Listing Window 中列出相關資訊
+    listWin.WriteLine("*"*60)
+    listWin.WriteLine("總共引用 " + str(partNumber) + " 個子零件.")
+    listWin.WriteLine("其中個別零件總數為" + str(len(partList)))
+    listWin.WriteLine("30% 零件採 Steel 製, 其餘採 Aluminum 製, 總重量約 " + str(round(totalVolume*(7.85*0.3+2.7*0.7)/1000., 4))+ "kg")
+    listWin.WriteLine("全部零件採 Aluminum 製, 總重量約 " + str(round(totalMass/1000., 4)) + "kg")
+    listWin.WriteLine("全部零件採 Steel 製, 總重量約 " + str(round(totalMass*(7.85/2.7)/1000., 4)) + "kg")
+    listWin.WriteLine("*"*60)
+                            
+if __name__ == "__main__":
+    main()
+    &lt;/code&gt;&lt;/pre&gt;
 &lt;/section&gt;
 
 </t>
