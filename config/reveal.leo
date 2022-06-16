@@ -153,8 +153,8 @@ vertical: body pane on the botton</t>
 @tabwidth -4
 @others</t>
 <t tx="leo.20220314203825.10">&lt;section&gt;
-    &lt;h2&gt;Vertical Slides&lt;/h2&gt;
-    &lt;p&gt;Slides can be nested inside of each other.&lt;/p&gt;
+    &lt;h2&gt;w2&lt;/h2&gt;
+    &lt;p&gt;將分組名單個人網站及倉儲連結任務完成&lt;/p&gt;
     &lt;p&gt;Use the &lt;em&gt;Space&lt;/em&gt; key to navigate through all slides.&lt;/p&gt;
     &lt;br&gt;
     &lt;a href="#" class="navigate-down"&gt;
@@ -163,7 +163,7 @@ vertical: body pane on the botton</t>
 &lt;/section&gt;
 </t>
 <t tx="leo.20220314203825.11">&lt;section&gt;
-    &lt;h2&gt;Basement Level 1&lt;/h2&gt;
+    &lt;h2&gt;班級名單&lt;/h2&gt;
     &lt;p&gt;Nested slides are useful for adding additional detail underneath a high level horizontal slide.&lt;/p&gt;
 &lt;/section&gt;
 </t>
@@ -627,20 +627,20 @@ console.log( '"customevent" has fired' );
     &lt;a href="https://revealjs.com"&gt;
         &lt;img src="https://static.slid.es/reveal/logo-v1/reveal-white-text.svg" alt="reveal.js logo" style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo"&gt;
     &lt;/a&gt;
-    &lt;h3&gt;The HTML Presentation Framework&lt;/h3&gt;
+    &lt;h3&gt;CD2022協同產品設計&lt;/h3&gt;
     &lt;p&gt;
-        &lt;small&gt;Created by &lt;a href="http://hakim.se"&gt;Hakim El Hattab&lt;/a&gt; and &lt;a href="https://github.com/hakimel/reveal.js/graphs/contributors"&gt;contributors&lt;/a&gt;&lt;/small&gt;
+        &lt;small&gt;Created by &lt;a href="https://40923206-1.github.io/cd2022/content/index.html"&gt;40923206&lt;/a&gt; &lt;/small&gt;
     &lt;/p&gt;
 &lt;/section&gt;
 
 </t>
 <t tx="leo.20220314203825.8">&lt;section&gt;
-    &lt;h2&gt;Hello There&lt;/h2&gt;
+    &lt;h2&gt;w1&lt;/h2&gt;
     &lt;p&gt;
-        reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
+        建立本學期需使用的倉儲，和介紹本學期課程網站分布。
     &lt;/p&gt;
+            &lt;small&gt;倉儲 &lt;a href="https://github.com/40923206-1/cd2022bg3"&gt;40923206&lt;/a&gt; &lt;/small&gt;
 &lt;/section&gt;
-
 </t>
 <t tx="leo.20220314203825.9">&lt;!-- Example of nested vertical slides --&gt;
 &lt;section&gt;
